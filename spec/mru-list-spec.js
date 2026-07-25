@@ -110,7 +110,7 @@ describe('MRU List', () => {
     beforeEach(() => {
       dotAtomPath = temp.path('tabs-spec-mru-config')
       atom.config.configDirPath = dotAtomPath
-      atom.config.configFilePath = path.join(atom.config.configDirPath, 'atom.config.cson')
+      atom.config.configFilePath = path.join(atom.config.configDirPath, 'atom.config.json')
       atom.keymaps.configDirPath = dotAtomPath
     })
 
