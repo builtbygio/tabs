@@ -1,4 +1,3 @@
-BrowserWindow = null # Defer require until actually used
 {ipcRenderer} = require 'electron'
 
 {CompositeDisposable} = require 'atom'
@@ -387,8 +386,8 @@ class TabBarView
 
         if not isNaN(fromWindowId)
           # Let the window where the drag started know that the tab was dropped
-          browserWindow = @browserWindowForId(fromWindowId)
-          browserWindow?.webContents.send('tab:dropped', fromPaneId, fromIndex)
+          # (main-process relay; no electron.remote)
+          ipcRenderer.send('atom-webcontents-send-to-window-id', fromWindowId, 'tab:dropped', fromPaneId, fromIndex)
 
       atom.focus()
 
@@ -464,11 +463,6 @@ class TabBarView
       @tabScrolling = (process.platform is 'linux')
     else
       @tabScrolling = value
-
-  browserWindowForId: (id) ->
-    BrowserWindow ?= require('electron').remote.BrowserWindow
-
-    BrowserWindow.fromId id
 
   moveItemBetweenPanes: (fromPane, fromIndex, toPane, toIndex, item) ->
     try
