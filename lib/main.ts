@@ -1,3 +1,5 @@
+declare const atom: any
+
 const {CompositeDisposable, Disposable} = require('atom')
 const getIconServices = require('./get-icon-services')
 const layout = require('./layout')

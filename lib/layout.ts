@@ -1,3 +1,5 @@
+declare const atom: any
+
 module.exports = {
   activate () {
     this.view = document.createElement('div')
