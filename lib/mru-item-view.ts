@@ -1,3 +1,5 @@
+declare const atom: any
+
 'use babel'
 
 import getIconServices from './get-icon-services'
