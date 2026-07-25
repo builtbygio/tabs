@@ -7,7 +7,7 @@ import {CompositeDisposable} from 'atom'
 
 const displayListConfigKey = 'tabs.displayMruTabList'
 
-export default class MRUListView {
+class MRUListView {
   initialize (pane) {
     this.ownerDiv = document.createElement('div')
     this.element = document.createElement('ol')
@@ -171,3 +171,5 @@ export default class MRUListView {
     return selectedViewElement.element
   }
 }
+
+module.exports = MRUListView

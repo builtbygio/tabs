@@ -5,7 +5,7 @@ declare const atom: any
 import getIconServices from './get-icon-services'
 import path from 'path'
 
-export default class MRUItemView {
+class MRUItemView {
   initialize (listView, item) {
     this.listView = listView
     this.item = item
@@ -70,3 +70,5 @@ export default class MRUItemView {
     return null
   }
 }
+
+module.exports = MRUItemView
